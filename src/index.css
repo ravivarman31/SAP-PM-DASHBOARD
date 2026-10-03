@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Canvas + structure */
+  --color-canvas: #eef1f5;
+  --color-surface: #ffffff;
+  --color-raised: #f7f9fb;
+  --color-line: #dbe1ea;
+  --color-line-strong: #c3ccd9;
+
+  /* Ink */
+  --color-ink: #0d1726;
+  --color-ink-soft: #46536b;
+  --color-ink-mute: #6c7a92;
+
+  /* Navigation rail */
+  --color-rail: #0b1220;
+  --color-rail-2: #141e30;
+  --color-rail-line: #22304a;
+
+  /* Accent — steel teal, borrowed from plant signage rather than SaaS violet */
+  --color-accent: #0b6577;
+  --color-accent-dark: #084c5a;
+  --color-accent-soft: #e3f0f2;
+  --color-accent-line: #b3d5db;
+
+  /* Operational status */
+  --color-ok: #146c43;
+  --color-ok-soft: #e5f2ea;
+  --color-warn: #96590a;
+  --color-warn-soft: #fbeedd;
+  --color-danger: #b02a1f;
+  --color-danger-soft: #fbeae8;
+  --color-info: #1d4e7c;
+  --color-info-soft: #e8eff7;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: #0d1726;
+  background: #eef1f5;
+  font-feature-settings: "cv05", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* Numbers in tables and metrics line up column by column */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* Object keys (order numbers, equipment IDs) are codes, so they are set as codes */
+.objkey { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: -0.01em; }
+
+:focus-visible { outline: 2px solid #0b6577; outline-offset: 2px; border-radius: 3px; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c3ccd9; border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: #9aa8bb; background-clip: content-box; }
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.rise { animation: riseIn .16s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
